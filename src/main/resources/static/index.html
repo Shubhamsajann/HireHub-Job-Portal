@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireHub | Find Your Next Opportunity</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo">Hire<span>Hub</span></a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#jobs">Find Jobs</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <div class="nav-buttons">
+        <button class="btn btn-outline" id="myApplicationsButton" hidden>
+            My Applications
+        </button>
+
+        <button class="btn btn-outline" id="loginButton">Login</button>
+        <button class="btn btn-primary" id="registerButton">Register</button>
+    </div>
+</header>
+
+<main>
+    <!-- Home -->
+    <section class="hero" id="home">
+        <p class="eyebrow">YOUR CAREER STARTS HERE</p>
+        <h1>Find a job that fits<br>your <span>future.</span></h1>
+
+        <p class="hero-text">
+            Discover opportunities, connect with companies,
+            and take the next step in your career.
+        </p>
+
+        <form id="searchForm" class="search-box">
+            <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Job title, company, or location"
+                    aria-label="Search jobs">
+
+            <button type="submit" class="btn btn-primary">
+                Search Jobs
+            </button>
+        </form>
+
+        <p class="hero-note">
+            Explore opportunities and build your future with HireHub.
+        </p>
+    </section>
+
+    <!-- Job Listings -->
+    <section class="jobs-section" id="jobs">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">OPPORTUNITIES FOR YOU</p>
+                <h2>Latest Jobs</h2>
+            </div>
+
+            <button class="btn btn-outline" id="refreshJobs">
+                Refresh Jobs
+            </button>
+        </div>
+
+        <p id="jobMessage" class="message">Loading jobs...</p>
+        <div id="jobsContainer" class="jobs-grid"></div>
+    </section>
+
+    <!-- Recruiter Dashboard -->
+    <section id="recruiterSection" hidden>
+        <h2>Recruiter Dashboard</h2>
+        <p>Post a new job opportunity.</p>
+
+        <form id="postJobForm">
+            <label for="jobTitle">Job Title</label>
+            <input id="jobTitle" type="text" required>
+
+            <label for="companyName">Company Name</label>
+            <input id="companyName" type="text" required>
+
+            <label for="jobLocation">Location</label>
+            <input id="jobLocation" type="text" required>
+
+            <label for="employmentType">Employment Type</label>
+            <select id="employmentType" required>
+                <option value="">Select employment type</option>
+                <option value="FULL_TIME">Full-time</option>
+                <option value="PART_TIME">Part-time</option>
+                <option value="CONTRACT">Contract</option>
+                <option value="INTERNSHIP">Internship</option>
+            </select>
+
+            <label for="jobSalary">Salary (₹)</label>
+            <input
+                    id="jobSalary"
+                    type="number"
+                    min="0"
+                    step="0.01">
+
+            <label for="jobDescription">Job Description</label>
+            <textarea
+                    id="jobDescription"
+                    rows="5"
+                    maxlength="2000"
+                    required></textarea>
+
+            <button class="btn btn-primary" type="submit">
+                Post Job
+            </button>
+
+            <p id="postJobMessage" role="status"></p>
+        </form>
+    </section>
+
+    <!-- Recruiter Applicants -->
+    <section id="applicantsSection" hidden>
+        <h2>Job Applicants</h2>
+
+        <button
+                type="button"
+                class="btn btn-outline"
+                id="refreshApplicants">
+            Refresh Applicants
+        </button>
+
+        <p id="applicantsMessage" role="status"></p>
+        <div id="applicantsContainer" class="jobs-grid"></div>
+    </section>
+
+    <!-- About -->
+    <section class="about-section" id="about">
+        <h2>Your next opportunity starts here.</h2>
+        <p>
+            HireHub connects candidates with opportunities
+            and helps recruiters find talent.
+        </p>
+    </section>
+</main>
+
+<!-- Login and Registration -->
+<section class="auth-section" id="authSection" hidden>
+    <div class="auth-card">
+        <h2 id="authTitle">Login to HireHub</h2>
+        <p id="authMessage">Enter your email and password.</p>
+
+        <form id="authForm">
+            <div id="nameField" hidden>
+                <label for="name">Full Name</label>
+                <input
+                        id="name"
+                        type="text"
+                        placeholder="Your name">
+            </div>
+
+            <label for="email">Email</label>
+            <input
+                    id="email"
+                    type="email"
+                    required
+                    placeholder="you@example.com">
+
+            <label for="password">Password</label>
+            <input
+                    id="password"
+                    type="password"
+                    required
+                    placeholder="Enter password">
+
+            <div id="roleField" hidden>
+                <label for="role">Account Type</label>
+                <select id="role">
+                    <option value="CANDIDATE">Candidate</option>
+                    <option value="RECRUITER">Recruiter</option>
+                </select>
+            </div>
+
+            <button
+                    class="btn btn-primary"
+                    id="authSubmit"
+                    type="submit">
+                Login
+            </button>
+        </form>
+
+        <p id="authFeedback" role="status"></p>
+
+        <button class="auth-switch" id="authSwitch" type="button">
+            Need an account? Register
+        </button>
+
+        <button class="auth-switch" id="closeAuth" type="button">
+            Close
+        </button>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <a href="#home" class="logo">Hire<span>Hub</span></a>
+    <p>
+        © 2026 HireHub. Built with Java, Spring Boot, and MySQL.
+    </p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
